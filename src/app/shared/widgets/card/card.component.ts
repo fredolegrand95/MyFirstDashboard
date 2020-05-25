@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
-import { InvokeFunctionExpr } from '@angular/compiler';
 
 @Component({
   selector: 'app-widget-card',
@@ -18,6 +17,7 @@ export class CardComponent implements OnInit {
   Highcharts = Highcharts;
   chartOptions = {};
 
+  @Input() data = [];
   constructor() { }
 
   ngOnInit(): void {
@@ -71,7 +71,7 @@ export class CardComponent implements OnInit {
         enabled: false
       },
       series: [{
-          data: [71, 78, 39, 66]
+          data: this.data
       }]
   };
 
